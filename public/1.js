@@ -1,14 +1,28 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserTable.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/post/PostTable.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/UserTable.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/post/PostTable.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -96,16 +110,8 @@ __webpack_require__.r(__webpack_exports__);
         numeric: true,
         searchable: true
       }, {
-        field: 'name',
-        label: 'Nombre',
-        searchable: true
-      }, {
-        field: 'username',
-        label: 'Nombre Usuario',
-        searchable: true
-      }, {
-        field: 'email',
-        label: 'Email',
+        field: 'title',
+        label: 'Titulo',
         searchable: true
       }]
     };
@@ -153,9 +159,9 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserTable.vue?vue&type=template&id=73fabcea&scoped=true&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/post/PostTable.vue?vue&type=template&id=ac2c786c&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/user/UserTable.vue?vue&type=template&id=73fabcea&scoped=true& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/post/PostTable.vue?vue&type=template&id=ac2c786c&scoped=true& ***!
   \*****************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -169,165 +175,188 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "section",
-      [
-        _c("div", { staticClass: "control" }, [
-          _c(
-            "a",
-            {
-              staticClass: "button is-success",
-              attrs: { href: _vm.url + "/create" }
-            },
-            [_vm._v("\n                Nuevo Usuario\n            ")]
-          )
+    _c("section", [
+      _c("div", { staticClass: "columns" }, [
+        _c("div", { staticClass: "column" }, [
+          _c("div", { staticClass: "control" }, [
+            _c(
+              "a",
+              {
+                staticClass: "button is-success",
+                attrs: { href: _vm.url + "/create" }
+              },
+              [
+                _vm._v(
+                  "\n                        Nueva Entrada\n                    "
+                )
+              ]
+            )
+          ])
         ]),
         _vm._v(" "),
         _c(
-          "b-field",
-          { attrs: { grouped: "", "group-multiline": "" } },
+          "div",
+          { staticClass: "column" },
           [
             _c(
-              "b-select",
-              {
-                on: { input: _vm.getData },
-                model: {
-                  value: _vm.perPage,
-                  callback: function($$v) {
-                    _vm.perPage = $$v
-                  },
-                  expression: "perPage"
-                }
-              },
+              "b-field",
+              { attrs: { grouped: "", "group-multiline": "" } },
               [
-                _c("option", { attrs: { value: "5" } }, [
-                  _vm._v("5 por página")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "10" } }, [
-                  _vm._v("10 por página")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "15" } }, [
-                  _vm._v("15 por página")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "20" } }, [
-                  _vm._v("20 por página")
-                ])
-              ]
+                _c(
+                  "b-select",
+                  {
+                    on: { input: _vm.getData },
+                    model: {
+                      value: _vm.perPage,
+                      callback: function($$v) {
+                        _vm.perPage = $$v
+                      },
+                      expression: "perPage"
+                    }
+                  },
+                  [
+                    _c("option", { attrs: { value: "5" } }, [
+                      _vm._v("5 por página")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "10" } }, [
+                      _vm._v("10 por página")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "15" } }, [
+                      _vm._v("15 por página")
+                    ]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { value: "20" } }, [
+                      _vm._v("20 por página")
+                    ])
+                  ]
+                )
+              ],
+              1
             )
           ],
           1
-        ),
-        _vm._v(" "),
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "columns" }, [
         _c(
-          "b-table",
-          {
-            attrs: {
-              data: _vm.data,
-              paginated: "",
-              loading: _vm.loading,
-              "per-page": _vm.perPage,
-              "backend-pagination": "",
-              "default-sort": "id",
-              "backend-sorting": "",
-              "current-page": _vm.currentPage,
-              total: _vm.total,
-              "backend-filtering": true
-            },
-            on: {
-              sort: _vm.sorted,
-              "page-change": _vm.pageChange,
-              "filters-change": _vm.getData
-            }
-          },
+          "div",
+          { staticClass: "column is-full" },
           [
-            _vm._l(_vm.columns, function(column) {
-              return [
-                _c(
-                  "b-table-column",
-                  _vm._b(
-                    {
-                      key: column.id,
-                      scopedSlots: _vm._u(
-                        [
-                          column.searchable && !column.numeric
-                            ? {
-                                key: "searchable",
+            _c(
+              "b-table",
+              {
+                attrs: {
+                  data: _vm.data,
+                  paginated: "",
+                  loading: _vm.loading,
+                  "per-page": _vm.perPage,
+                  "backend-pagination": "",
+                  "default-sort": "id",
+                  "backend-sorting": "",
+                  "current-page": _vm.currentPage,
+                  total: _vm.total,
+                  "backend-filtering": true
+                },
+                on: {
+                  sort: _vm.sorted,
+                  "page-change": _vm.pageChange,
+                  "filters-change": _vm.getData
+                }
+              },
+              [
+                _vm._l(_vm.columns, function(column) {
+                  return [
+                    _c(
+                      "b-table-column",
+                      _vm._b(
+                        {
+                          key: column.id,
+                          scopedSlots: _vm._u(
+                            [
+                              column.searchable && !column.numeric
+                                ? {
+                                    key: "searchable",
+                                    fn: function(props) {
+                                      return [
+                                        _c("b-input", {
+                                          attrs: {
+                                            placeholder:
+                                              "Buscar por " +
+                                              props.column.label,
+                                            icon: "magnify",
+                                            size: "is-small"
+                                          },
+                                          model: {
+                                            value:
+                                              props.filters[props.column.field],
+                                            callback: function($$v) {
+                                              _vm.$set(
+                                                props.filters,
+                                                props.column.field,
+                                                $$v
+                                              )
+                                            },
+                                            expression:
+                                              "props.filters[props.column.field]"
+                                          }
+                                        })
+                                      ]
+                                    }
+                                  }
+                                : null,
+                              {
+                                key: "default",
                                 fn: function(props) {
                                   return [
-                                    _c("b-input", {
-                                      attrs: {
-                                        placeholder:
-                                          "Buscar por " + props.column.label,
-                                        icon: "magnify",
-                                        size: "is-small"
-                                      },
-                                      model: {
-                                        value:
-                                          props.filters[props.column.field],
-                                        callback: function($$v) {
-                                          _vm.$set(
-                                            props.filters,
-                                            props.column.field,
-                                            $$v
+                                    !column.custom
+                                      ? [
+                                          _vm._v(
+                                            "\n                                    " +
+                                              _vm._s(props.row[column.field]) +
+                                              "\n                                "
                                           )
-                                        },
-                                        expression:
-                                          "props.filters[props.column.field]"
-                                      }
-                                    })
+                                        ]
+                                      : column.field === "actions"
+                                      ? [
+                                          _c("ActionButtons", {
+                                            attrs: {
+                                              edit: true,
+                                              show: true,
+                                              dele: true,
+                                              url: _vm.url,
+                                              row: props.row,
+                                              primaryKey: "slug"
+                                            },
+                                            on: { deleteData: _vm.getData }
+                                          })
+                                        ]
+                                      : _vm._e()
                                   ]
                                 }
                               }
-                            : null,
-                          {
-                            key: "default",
-                            fn: function(props) {
-                              return [
-                                !column.custom
-                                  ? [
-                                      _vm._v(
-                                        "\n                            " +
-                                          _vm._s(props.row[column.field]) +
-                                          "\n                        "
-                                      )
-                                    ]
-                                  : column.field === "actions"
-                                  ? [
-                                      _c("ActionButtons", {
-                                        attrs: {
-                                          edit: true,
-                                          show: true,
-                                          dele: true,
-                                          url: _vm.url,
-                                          row: props.row
-                                        }
-                                      })
-                                    ]
-                                  : _vm._e()
-                              ]
-                            }
-                          }
-                        ],
-                        null,
-                        true
+                            ],
+                            null,
+                            true
+                          )
+                        },
+                        "b-table-column",
+                        column,
+                        false
                       )
-                    },
-                    "b-table-column",
-                    column,
-                    false
-                  )
-                )
-              ]
-            })
+                    )
+                  ]
+                })
+              ],
+              2
+            )
           ],
-          2
+          1
         )
-      ],
-      1
-    )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -449,17 +478,17 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ "./resources/js/components/user/UserTable.vue":
+/***/ "./resources/js/components/post/PostTable.vue":
 /*!****************************************************!*\
-  !*** ./resources/js/components/user/UserTable.vue ***!
+  !*** ./resources/js/components/post/PostTable.vue ***!
   \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _UserTable_vue_vue_type_template_id_73fabcea_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserTable.vue?vue&type=template&id=73fabcea&scoped=true& */ "./resources/js/components/user/UserTable.vue?vue&type=template&id=73fabcea&scoped=true&");
-/* harmony import */ var _UserTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserTable.vue?vue&type=script&lang=js& */ "./resources/js/components/user/UserTable.vue?vue&type=script&lang=js&");
+/* harmony import */ var _PostTable_vue_vue_type_template_id_ac2c786c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PostTable.vue?vue&type=template&id=ac2c786c&scoped=true& */ "./resources/js/components/post/PostTable.vue?vue&type=template&id=ac2c786c&scoped=true&");
+/* harmony import */ var _PostTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostTable.vue?vue&type=script&lang=js& */ "./resources/js/components/post/PostTable.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -469,50 +498,50 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _UserTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _UserTable_vue_vue_type_template_id_73fabcea_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _UserTable_vue_vue_type_template_id_73fabcea_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _PostTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PostTable_vue_vue_type_template_id_ac2c786c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PostTable_vue_vue_type_template_id_ac2c786c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "73fabcea",
+  "ac2c786c",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/user/UserTable.vue"
+component.options.__file = "resources/js/components/post/PostTable.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/user/UserTable.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/components/post/PostTable.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************!*\
-  !*** ./resources/js/components/user/UserTable.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/components/post/PostTable.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserTable.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PostTable.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/post/PostTable.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PostTable_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/user/UserTable.vue?vue&type=template&id=73fabcea&scoped=true&":
+/***/ "./resources/js/components/post/PostTable.vue?vue&type=template&id=ac2c786c&scoped=true&":
 /*!***********************************************************************************************!*\
-  !*** ./resources/js/components/user/UserTable.vue?vue&type=template&id=73fabcea&scoped=true& ***!
+  !*** ./resources/js/components/post/PostTable.vue?vue&type=template&id=ac2c786c&scoped=true& ***!
   \***********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserTable_vue_vue_type_template_id_73fabcea_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./UserTable.vue?vue&type=template&id=73fabcea&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/user/UserTable.vue?vue&type=template&id=73fabcea&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserTable_vue_vue_type_template_id_73fabcea_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostTable_vue_vue_type_template_id_ac2c786c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./PostTable.vue?vue&type=template&id=ac2c786c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/post/PostTable.vue?vue&type=template&id=ac2c786c&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostTable_vue_vue_type_template_id_ac2c786c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserTable_vue_vue_type_template_id_73fabcea_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PostTable_vue_vue_type_template_id_ac2c786c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -17,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $perPage = \request('length', 10);
+        $this->authorize('viewAny', User::class);
+        $perPage = \request('perPage', 10);
         $data = User::filter(\request()->all())->paginate($perPage);
         if(\request()->wantsJson()){
             return new JsonResponse($data);
@@ -32,6 +33,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', User::class);
         return view('admin.users.create');
     }
 
@@ -43,7 +45,7 @@ class UserController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $user = User::storeUser($request->all());
+        $user = User::storeUser($request->all(), $request->file('avatar'));
         return redirect(route('users.index'));
     }
 
@@ -55,6 +57,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $this->authorize('show', $user);
         return view('admin.users.show', ['user' => $user]);
     }
 
@@ -66,6 +69,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize('edit', $user);
         return view('admin.users.edit', ['user' => $user]);
     }
 
@@ -78,18 +82,22 @@ class UserController extends Controller
      */
     public function update(UpdateRequest $request, User $user)
     {
-        $user->updateUser($request->all());
-        return redirect(route('report.index'));
+        $user->updateUser($request->all(), $request->file('avatar'));
+        return redirect(route('users.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  User $user
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function destroy(User $user)
     {
-        //
+        $this->authorize('delete', $user);
+        $user->deleteUser();
+        return new JsonResponse([
+            'status' => true
+        ]);
     }
 }

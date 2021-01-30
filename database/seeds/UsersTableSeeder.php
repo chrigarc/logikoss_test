@@ -23,5 +23,16 @@ class UsersTableSeeder extends Seeder
 
         $user->assignRole('admin');
 
+        $email = 'editor@itzelcom.com';
+        $user = User::create([
+            'name' => 'editor',
+            'username' => 'editor',
+            'email' => $email,
+            'password' => bcrypt('12345678'),
+            'avatar' => \Thomaswelton\LaravelGravatar\Facades\Gravatar::src($email)
+        ]);
+
+        $user->assignRole('editor');
+
     }
 }

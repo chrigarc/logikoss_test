@@ -125,7 +125,7 @@ php artisan key:generate
 php artisan storage:link
 ```
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```
 ```bash
 npm install

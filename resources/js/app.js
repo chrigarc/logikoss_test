@@ -40,6 +40,7 @@ Vue.use(Loading);
 //data-table
 Vue.component('ActionButtons', () => import('./components/ActionButtons'));
 Vue.component('user-table', () => import('./components/user/UserTable'));
+Vue.component('post-table', () => import('./components/post/PostTable'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

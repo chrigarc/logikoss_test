@@ -2,15 +2,13 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{__('users.title')}}</div>
-                    <div class="panel-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h1>Información del Usuario</h1>
+        <br>
+        <img src="{{url($user->avatar)}}" alt="avatar">
+        <br>
+        <p>Nombre: {{$user->name}}</p>
+        <p>Username: {{$user->username}}</p>
+        <p>Email: {{$user->email}}</p>
+        <a href="{{route('users.index')}}">Regresar</a>
     </div>
 @endsection

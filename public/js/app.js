@@ -63531,7 +63531,10 @@ Vue.component('ActionButtons', function () {
   return __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/ActionButtons */ "./resources/js/components/ActionButtons.vue"));
 });
 Vue.component('user-table', function () {
-  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/user/UserTable */ "./resources/js/components/user/UserTable.vue"));
+  return __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/user/UserTable */ "./resources/js/components/user/UserTable.vue"));
+});
+Vue.component('post-table', function () {
+  return __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/post/PostTable */ "./resources/js/components/post/PostTable.vue"));
 });
 /**
  * Next, we will create a fresh Vue application instance and attach it to
