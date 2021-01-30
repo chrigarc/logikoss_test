@@ -13,7 +13,7 @@ trait PostTrait
         $path = $file->store($request['image'], 'public');
         $data = [
             'image' => $path,
-            'slug' => Str::slug($)
+            'slug' => Str::slug($request['title'])
         ];
         $request = array_merge($data, $request);
         $user = Post::create($request);
