@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Models\Post;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
 
 trait PostTrait
 {
@@ -11,7 +12,8 @@ trait PostTrait
     {
         $path = $file->store($request['image'], 'public');
         $data = [
-            'image' => $path
+            'image' => $path,
+            'slug' => Str::slug($)
         ];
         $request = array_merge($data, $request);
         $user = Post::create($request);

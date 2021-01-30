@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">{{__('users.title')}}</div>
                     <div class="panel-body">
-
+                        <user-table url="{{route('users.index')}}"/>
                     </div>
                 </div>
             </div>
