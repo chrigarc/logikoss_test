@@ -29,8 +29,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ActionButtons",
   data: function data() {
@@ -57,22 +55,11 @@ __webpack_require__.r(__webpack_exports__);
     deleteData: function deleteData(data) {
       var _this = this;
 
-      this.$dialog.confirm({
-        title: 'Eliminar Registro',
-        message: '¿Estas seguro de <b>eliminar</b> este registro?',
-        cancelText: 'Cancelar',
-        confirmText: 'Eliminar',
-        type: 'is-danger',
-        hasIcon: true,
-        onConfirm: function onConfirm() {
-          _this.$http["delete"]("".concat(_this.url, "/").concat(data[_this.primaryKey])).then(function (response) {
-            _this.$notify.success(response.data);
-
-            _this.$emit('deleteData');
-          }, function (error) {
-            _this.$notify.danger(error.response.data.message);
-          });
-        }
+      var loader = this.$loading.show();
+      axios["delete"]("".concat(this.url, "/").concat(data[this.primaryKey])).then(function (response) {
+        _this.$emit('deleteData');
+      }, function (error) {})["finally"](function () {
+        loader.hide();
       });
     }
   }
@@ -101,22 +88,15 @@ var render = function() {
     [
       _vm.show
         ? _c("p", { staticClass: "control" }, [
-            _vm.noModal === undefined
-              ? _c(
-                  "button",
-                  {
-                    staticClass: "button is-info is-small",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        _vm.modalActive = true
-                      }
-                    }
-                  },
-                  [_c("b-icon", { attrs: { icon: "eye" } })],
-                  1
-                )
-              : _vm._e()
+            _c(
+              "a",
+              {
+                staticClass: "button is-primary is-small",
+                attrs: { href: _vm.url + "/" + _vm.row[_vm.primaryKey] }
+              },
+              [_c("b-icon", { attrs: { icon: "eye" } })],
+              1
+            )
           ])
         : _vm._e(),
       _vm._v(" "),

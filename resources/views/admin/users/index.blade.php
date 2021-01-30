@@ -2,15 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{__('users.title')}}</div>
-                    <div class="panel-body">
-                        <user-table url="{{route('users.index')}}"/>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h2 class="tile">Usuarios Registrados</h2>
+        <user-table url="{{route('users.index')}}"/>
     </div>
 @endsection

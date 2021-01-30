@@ -5,7 +5,7 @@
                 <div class="column">
                     <div class="control" >
                         <a class="button is-success" :href="`${url}/create`">
-                            Nuevo Usuario
+                            Nueva Entrada
                         </a>
                     </div>
                 </div>
@@ -21,49 +21,53 @@
                 </div>
             </div>
             <div class="columns">
-                <b-table
-                    :data="data"
-                    paginated
-                    :loading="loading"
-                    :per-page="perPage"
-                    backend-pagination
-                    default-sort="id"
-                    backend-sorting
-                    :current-page="currentPage"
-                    :total="total"
-                    @sort="sorted"
-                    :backend-filtering="true"
-                    @page-change="pageChange"
-                    @filters-change="getData"
-                >
-                    <template v-for="column in columns">
-                        <b-table-column :key="column.id" v-bind="column">
-                            <template
-                                v-if="column.searchable && !column.numeric"
-                                #searchable="props">
-                                <b-input
-                                    v-model="props.filters[props.column.field]"
-                                    :placeholder="`Buscar por ${props.column.label}`"
-                                    icon="magnify"
-                                    size="is-small" />
-                            </template>
-                            <template v-slot="props">
-                                <template v-if="!column.custom">
-                                    {{ props.row[column.field] }}
+                <div class="column is-full">
+                    <b-table
+                        :data="data"
+                        paginated
+                        :loading="loading"
+                        :per-page="perPage"
+                        backend-pagination
+                        default-sort="id"
+                        backend-sorting
+                        :current-page="currentPage"
+                        :total="total"
+                        @sort="sorted"
+                        :backend-filtering="true"
+                        @page-change="pageChange"
+                        @filters-change="getData"
+                    >
+                        <template v-for="column in columns">
+                            <b-table-column :key="column.id" v-bind="column">
+                                <template
+                                    v-if="column.searchable && !column.numeric"
+                                    #searchable="props">
+                                    <b-input
+                                        v-model="props.filters[props.column.field]"
+                                        :placeholder="`Buscar por ${props.column.label}`"
+                                        icon="magnify"
+                                        size="is-small" />
                                 </template>
-                                <template v-else-if="column.field === 'actions'">
-                                    <ActionButtons :edit="true"
-                                                   :show="true"
-                                                   :dele="true"
-                                                   :url="url"
-                                                   :row="props.row"
-                                                   @deleteData="getData"
-                                    />
+                                <template v-slot="props">
+                                    <template v-if="!column.custom">
+                                        {{ props.row[column.field] }}
+                                    </template>
+                                    <template v-else-if="column.field === 'actions'">
+                                        <ActionButtons :edit="true"
+                                                       :show="true"
+                                                       :dele="true"
+                                                       :url="url"
+                                                       :row="props.row"
+                                                       primaryKey="slug"
+                                                       @deleteData="getData"
+                                        />
+                                    </template>
                                 </template>
-                            </template>
-                        </b-table-column>
-                    </template>
-                </b-table>
+                            </b-table-column>
+                        </template>
+                    </b-table>
+                </div>
+
             </div>
 
         </section>
@@ -99,18 +103,8 @@ export default {
                     searchable: true,
                 },
                 {
-                    field: 'name',
-                    label: 'Nombre',
-                    searchable: true
-                },
-                {
-                    field: 'username',
-                    label: 'Nombre Usuario',
-                    searchable: true
-                },
-                {
-                    field: 'email',
-                    label: 'Email',
+                    field: 'title',
+                    label: 'Titulo',
                     searchable: true
                 }
             ]

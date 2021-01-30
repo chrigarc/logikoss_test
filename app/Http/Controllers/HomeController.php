@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,16 +14,17 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
     public function index()
     {
-        return redirect()->route('posts.index');
+        $posts = Post::orderBy('created_at', 'desc')->paginate();
+        return view('home', ['posts' => $posts]);
     }
 }

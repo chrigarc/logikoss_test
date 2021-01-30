@@ -8,9 +8,14 @@ use Illuminate\Support\Str;
 
 trait PostTrait
 {
-    public static function storePost(array $request, UploadedFile $file)
+    public static function storePost(array $request, UploadedFile $file = null)
     {
-        $path = $file->store($request['image'], 'public');
+        $path = null;
+
+        if($file){
+            $path = $file->store($request['title'], 'public');
+        }
+
         $data = [
             'image' => $path,
             'slug' => Str::slug($request['title'])

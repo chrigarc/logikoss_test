@@ -2,15 +2,12 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{__('users.title')}}</div>
-                    <div class="panel-body">
-
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h2 class="tile">Usuario Nuevo</h2>
+        {!! Form::open(['route' => 'users.store'], ['enctype' => 'multipart/form-data']) !!}
+        @include('admin.users.form')
+        <button type="submit" class="button is-primary">
+            Guardar
+        </button>
+        {!! Form::close() !!}
     </div>
 @endsection

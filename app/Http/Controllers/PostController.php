@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\StoreRequest;
+use App\Http\Requests\Post\StoreRequest;
+use App\Http\Requests\Post\UpdateRequest;
 use App\Models\Post;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -16,12 +17,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        $perPage = \request('length', 10);
+        $this->authorize('viewAny', Post::class);
+        $perPage = \request('perPage', 10);
         $data = Post::filter(\request()->all())->paginate($perPage);
         if(\request()->wantsJson()){
             return new JsonResponse($data);
         }
-        return view('posts.index', ['posts' => $data]);
+        return view('admin.posts.index', ['posts' => $data]);
     }
 
     /**
@@ -31,7 +33,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $this->authorize('create', Post::class);
+        return view('admin.posts.create');
     }
 
     /**
@@ -42,7 +45,7 @@ class PostController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        $post = Post::storeUser($request->all());
+        $post = Post::storePost($request->only(['title', 'content']), $request->file('image'));
         return redirect(route('posts.index'));
     }
 
@@ -54,6 +57,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $this->authorize('show', $post);
         return view('posts.show', ['post' => $post]);
     }
 
@@ -65,7 +69,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', ['post' => $post]);
+        $this->authorize('edit', $post);
+        return view('admin.posts.edit', ['post' => $post]);
     }
 
     /**
@@ -75,19 +80,23 @@ class PostController extends Controller
      * @param Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdateRequest $request, Post $post)
     {
-
+        $post->updatePost($request->only(['title', 'content']), $request->file('image'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  Post $post
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function destroy(Post $post)
     {
-        //
+        $this->authorize('delete', $post);
+        $post->deletePost();
+        return new JsonResponse([
+            'status' => true
+        ]);
     }
 }
